@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr" data-bs-theme="light" class="h-100">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; frame-src blob:; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex">
+
+  <title>Test</title>
+
+  <link rel="icon" href="static/favicon.svg">
+  <link href="static/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/css/style.css" rel="stylesheet">
+  <script src="static/js/color-mode-switcher.js"></script>
+  <script src="static/js/bootstrap.bundle.min.js" defer></script>
+
+  <script src="static/js/chart.min.js"></script>
+  <script type="module" src="static/js/test.js"></script>
+</head>
+
+<body class="h-100 bg-dark-subtle">
+  <div id="app" class="h-100">
+    <div class="vstack overflow-y-scroll h-100">
+
+        
+        <section class="card m-3 bg-body shadow font-monospace border-primary" id="display-raw">
+          <header class="card-header d-flex justify-content-between">
+            <h1 class="h6 lh-base mb-0">
+              <a class="text-reset text-decoration-none" data-bs-toggle="collapse" href="#display-raw-collapse" role="button" aria-expanded="true" aria-controls="display-raw-collapse">
+                <svg class="bi me-2" width="16" height="16">
+                  <use xlink:href="#chevron-down"></use>
+                </svg>
+                📈 State generale
+              </a>
+            </h1>
+          </header>
+
+        <div class="tab-content collapse show" id="display-raw-collapse" style="margin: 20px;">
+            <div class="d-flex" style="gap: 50px;">
+                <canvas id="tag_camenbert" height="600" class="me-2" style="width: 25%; height: 100%;"></canvas>
+                <canvas id="tag_time" height="600" style="width: 75%; height: 100%;"></canvas>
+            </div>
+
+            <script>
+            function resizeCanvas(canvas) {
+                const rect = canvas.getBoundingClientRect();
+                canvas.width = rect.width * 10;
+                canvas.height = rect.height * 10;
+            }
+            resizeCanvas(document.getElementById('tag_camenbert'));
+            resizeCanvas(document.getElementById('tag_time'));
+            </script>
+
+            <hr style="width: 90%; height: 1px; border: none; background-color: #ddd; margin: 1rem auto;">
+
+            <p>test</p>
+        </div>
+
+        </section>
+    </div>
+  </div>
+</body>
+
+</html>

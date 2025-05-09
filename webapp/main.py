@@ -312,6 +312,13 @@ async def lifespan(app):
     await payload_database.close()
 
 
+async def test(request):
+    context = {
+        "request": request,
+        "ctf_config": CTF_CONFIG,
+    }
+    return templates.TemplateResponse("test.html.jinja2", context)
+
 # Load configuration from environment variables, then .env file
 config = Config("../.env")
 DEBUG = config("DEBUG", cast=bool, default=False)
@@ -344,6 +351,9 @@ app = Starlette(
         Route("/api/flow/{flow_id:int}/raw", api_flow_raw_get),
         Route("/api/replay-http/{flow_id:int}", api_replay_http),
         Route("/api/replay-raw/{flow_id:int}", api_replay_raw),
+
+        Route("/test", test),
+
         Mount("/static", StaticFiles(directory="static")),
         Mount("/input_pcaps", StaticFiles(directory="../input_pcaps", check_dir=False)),
         Mount(
