@@ -39,19 +39,9 @@
 
         <div class="tab-content collapse show" id="display-raw-collapse" style="margin: 20px;">
             <div class="d-flex" style="gap: 50px;">
-                <canvas id="tag_camenbert" height="600" class="me-2" style="width: 25%; height: 100%;"></canvas>
-                <canvas id="tag_time" height="600" style="width: 75%; height: 100%;"></canvas>
+              <canvas id="tag_camenbert" height="300" style="height: 300px; width: 25%;" class="me-2"></canvas>
+              <canvas id="tag_time" height="300" style="height: 300px; width: 75%;"></canvas>
             </div>
-
-            <script>
-            function resizeCanvas(canvas) {
-                const rect = canvas.getBoundingClientRect();
-                canvas.width = rect.width * 10;
-                canvas.height = rect.height * 10;
-            }
-            resizeCanvas(document.getElementById('tag_camenbert'));
-            resizeCanvas(document.getElementById('tag_time'));
-            </script>
 
             <hr style="width: 90%; height: 1px; border: none; background-color: #ddd; margin: 1rem auto;">
 
